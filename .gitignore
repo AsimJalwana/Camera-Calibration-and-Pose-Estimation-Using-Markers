@@ -1,0 +1,11 @@
+*.jpg
+*.png
+*.xml
+*.pyc
+*.pkl
+*.yaml
+*.xml
+*.tcl
+
+/CapturedImages
+/Perfect CheckerBoard
