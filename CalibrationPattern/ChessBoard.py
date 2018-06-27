@@ -4,11 +4,6 @@ from Utilities import Utilities
 from CalibrationPattern import AbstractCalibrationPattern
 
 class ChessBoard(AbstractCalibrationPattern.AbstractCalibrationPattern):
-    """
-        This class is to create objects of ChessBoard images taken from the camera,
-        they take the RGB as the input.
-        Please change the path in '__IMAGES_STORE_PATH'
-    """
     __rows = 7
     __cols = 9
     __criteria = (openCV.TERM_CRITERIA_EPS + openCV.TERM_CRITERIA_MAX_ITER, 100, 0.001)
@@ -18,8 +13,7 @@ class ChessBoard(AbstractCalibrationPattern.AbstractCalibrationPattern):
     __AXIS_XYZ = __BLOCK_SIZE_MM * np.float32([[3, 0, 0], [0, 3, 0], [0, 0, -3]]).reshape(-1, 3)
     __AXIS_CUBE = __BLOCK_SIZE_MM * np.float32([[0, 0, 0], [0, 3, 0], [3, 3, 0], [3, 0, 0],
                        [0, 0, -3], [0, 3, -3], [3, 3, -3], [3, 0, -3]])
-    __ListOfDetectedObjectPoints = []
-    __ListOfDetectedImagePoints = []
+
 
     def __init__(self, **kwargs):
         super(ChessBoard, self).__init__(**kwargs)
@@ -28,7 +22,7 @@ class ChessBoard(AbstractCalibrationPattern.AbstractCalibrationPattern):
 
     @classmethod
     def getObjectPoints(cls):
-        return cls.__ListOfDetectedObjectPoints
+        return cls._ListOfDetectedObjectPoints
 
     @classmethod
     def getObjectPointsGrid(cls):
@@ -36,7 +30,7 @@ class ChessBoard(AbstractCalibrationPattern.AbstractCalibrationPattern):
 
     @classmethod
     def getImagePoints(cls):
-        return cls.__ListOfDetectedImagePoints
+        return cls._ListOfDetectedImagePoints
 
     @classmethod
     def getGrayScaleShape(cls):
@@ -52,8 +46,8 @@ class ChessBoard(AbstractCalibrationPattern.AbstractCalibrationPattern):
             self._corners = cornersImproved
 
             if aggregateToList:
-                ChessBoard.__ListOfDetectedObjectPoints.append(ChessBoard.__OBJECT_POINTS_GRID_WORLD_FRAME)
-                ChessBoard.__ListOfDetectedImagePoints.append(cornersImproved)
+                ChessBoard._ListOfDetectedObjectPoints.append(ChessBoard.__OBJECT_POINTS_GRID_WORLD_FRAME)
+                ChessBoard._ListOfDetectedImagePoints.append(cornersImproved)
 
             if drawCorners:
                 imageWithDrawnCorners = np.copy(self._image)
@@ -64,8 +58,8 @@ class ChessBoard(AbstractCalibrationPattern.AbstractCalibrationPattern):
 
     @classmethod
     def clearListOfObjectnImagePoints(cls):
-        cls.__ListOfDetectedImagePoints = []
-        cls.__ListOfDetectedObjectPoints = []
+        cls._ListOfDetectedImagePoints = []
+        cls._ListOfDetectedObjectPoints = []
 
     def __drawAxesAtOrigin(self, imagePoints):
         if self._corners is None:

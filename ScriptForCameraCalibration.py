@@ -21,12 +21,7 @@ while(True):
         checkerBoard.save()
         frequencyOfPatternFound = frequencyOfPatternFound + 1
 
-        if frequencyOfPatternFound > 10:
+        if frequencyOfPatternFound > 50:
             break
 
 print(device.calibrate(checkerBoard.getObjectPoints(), checkerBoard.getImagePoints(), checkerBoard.getGrayScaleShape()))
-    # kinect.colorSpaceToCameraSpace()
-
-    # ret, _ = checkerBoard.findCorners()
-    # if ret:
-    #     break

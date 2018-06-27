@@ -10,6 +10,8 @@ class AbstractCalibrationPattern(object):
     __IMAGES_STORE_PATH = ".\\CapturedImages"
     __imagePostFix = 1
     _SHAPE_OF_GRAYSCALE = None
+    _ListOfDetectedObjectPoints = []
+    _ListOfDetectedImagePoints = []
 
     def __init__(self,**kwargs):
         self._fileName = kwargs.get('fileName')
@@ -86,3 +88,9 @@ class AbstractCalibrationPattern(object):
         rotation_matrix = np.zeros(shape=(3, 3))
         rotation_matrix, _ = openCV.Rodrigues(rvec, rotation_matrix)
         return rotation_matrix
+
+    @abc.abstractmethod
+    def calculateObjectnImagePointsnDisplay(self, drawCorners = True, aggregateToList = True):
+        """
+            Find the corresponding World Coordinates and corresponding pixels
+        """

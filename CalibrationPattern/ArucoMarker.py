@@ -1,14 +1,15 @@
+import itertools
+
 import cv2 as openCV
 import numpy as np
-import os
-from Utilities import Utilities
 from cv2 import aruco
+
 from CalibrationPattern import AbstractCalibrationPattern
-import itertools
+
 
 class ArucoMarker(AbstractCalibrationPattern.AbstractCalibrationPattern):
     __criteria = (openCV.TERM_CRITERIA_EPS + openCV.TERM_CRITERIA_MAX_ITER, 100, 0.001)
-    __MARKER_LENGTH = 26 # in millimeters
+    __MARKER_LENGTH = 79 # in millimeters
 
     def __init__(self, **kwargs):
         super(ArucoMarker, self).__init__(**kwargs)
@@ -34,3 +35,5 @@ class ArucoMarker(AbstractCalibrationPattern.AbstractCalibrationPattern):
         tvec = np.transpose(list(itertools.chain(*tvec)))
         return rvec, tvec
 
+    def calculateObjectnImagePointsnDisplay(self, drawCorners = True, aggregateToList = True):
+        print("Its in development phase, Please wait for next code update.")
