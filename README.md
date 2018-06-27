@@ -9,7 +9,6 @@ Currently Kinect v2 camera is supported by default. However any camera can be ca
  
 Many different pattern types can be used for calibration. The most commonly used patterns include checkerboard and the circle pattern. This software has the support for the Checkerboard. However, any pattern can be integrated seamlessly, Please see section "Adding other Calibration Patterns" for further details in wiki.
 
-
 ### Prerequisites
 * Windows 10
 * Kinect v2 SDK (https://www.microsoft.com/en-au/download/confirmation.aspx?id=44561)
@@ -28,9 +27,12 @@ I started with the 64 bits Python 3.6 and tried integrating with the Kinectv2.0 
 ### Why Matlab is being used?
 Matlab is just only used for the plotting pose estimation results. Its nice routine would otherwise have to be translated to Python. Beside the same version is available at Woodside.
 
-## Running the tests
+### Why Matlab is being used?
+Matlab is just only used for the plotting pose estimation results. Its nice routine would otherwise have to be translated to Python. Beside the same version is available at Woodside.
+
 
 * run the ScriptForCameraCalibration.py
 * run the ScriptForOrientation.py
 
-More details are shared in Wiki. Please refer to it.
+More details are shared on the Wiki page. Please refer to it.
+
