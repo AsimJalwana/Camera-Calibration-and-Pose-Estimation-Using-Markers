@@ -1,13 +1,13 @@
 # Camera Calibration and Pose Estimation Using Markers
 
 ## Getting Started
-This is pycharm project that does the following tasks
+This is a PyCharm project that does the following tasks
 *   Calibration of any RGB camera. 
 *   Estimating pose (position and orientation) of any object of known dimensions. 
 
-Currently Kinect v2 camera is supported by default. However any camera can be calibrated using this software. Please see section "Calibration of other Cameras" for details in wiki.
+Currently Kinect v2 camera is supported by default. However any camera can be calibrated using this software. Please see wiki page for adding other devices.
  
-Many different pattern types can be used for calibration. The most commonly used patterns include checkerboard and the circle pattern. This software has the support for the Checkerboard. However, any pattern can be integrated seamlessly, Please see section "Adding other Calibration Patterns" for further details in wiki.
+Many different patterns are used for calibration. The most commonly used patterns include checkerboard and the circle pattern. This software has the support for the Checkerboard/Chessboard. However, any pattern can be integrated seamlessly, Please see the wiki pages on adding new pattern class to this software.
 
 ### Prerequisites
 * Windows 10
@@ -22,17 +22,14 @@ Many different pattern types can be used for calibration. The most commonly used
 * scipy 1.1.0 (https://www.scipy.org/)
 
 ### Why Python 2.7 and Why 32 bit?
-I started with the 64 bits Python 3.6 and tried integrating with the Kinectv2.0 API. After many trials the 32bit Python 2.7 appeared to be the best choice. This decision affected the choice of Matlab version as well.  
+I started with the 64 bit Python 3.6 and tried integrating with the Kinectv2.0 API. After many trials the 32bit Python 2.7 appeared to be the best choice. This decision affected the choice of Matlab version as well.  
 
 ### Why Matlab is being used?
-Matlab is just only used for the plotting pose estimation results. Its nice routine would otherwise have to be translated to Python. Beside the same version is available at Woodside.
+Matlab is just only used for the plotting pose estimation results. It is a nice routine to visualize the extrinsic parameters.
 
-### Why Matlab is being used?
-Matlab is just only used for the plotting pose estimation results. Its nice routine would otherwise have to be translated to Python. Beside the same version is available at Woodside.
-
-
-* run the ScriptForCameraCalibration.py
-* run the ScriptForOrientation.py
+### How to Run this Software?
+* run the ScriptForCameraCalibration.py, if you are interested in calibrating a camera.
+* run the ScriptForOrientation.py, if you are interesting in estimating the pose of known object. 
 
 More details are shared on the Wiki page. Please refer to it.
 
